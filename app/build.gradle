@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
 android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
@@ -21,6 +23,9 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
@@ -32,4 +37,51 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.2.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    //noinspection GradleDependency
+    implementation "androidx.room:room-runtime:$roomVersion"
+    //noinspection GradleDependency
+    implementation "androidx.room:room-ktx:$roomVersion"
+    //noinspection GradleDependency
+    implementation "androidx.room:room-runtime:$roomVersion"
+    annotationProcessor "androidx.room:room-compiler:$roomVersion"
+    kapt "androidx.room:room-compiler:$roomVersion"
+
+    // Lifecycle
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycleVersion"
+    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycleVersion"
+
+    kapt 'com.android.databinding:compiler:3.1.4'
+
+    //noinspection GradleDependency
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleViewModelVersion"
+
+    // Coroutine
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutineVersion"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutineVersion"
+
+    //Okhttp3
+    implementation "com.squareup.okhttp3:okhttp:$okhttp3_version"
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.12.0'
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofitVersion"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2"
+    implementation "com.github.leonardoxh:retrofit2-livedata-adapter:1.1.2"
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    //koin
+    implementation "org.koin:koin-core:$koinVersion"
+    implementation "org.koin:koin-android-viewmodel:$koinVersion"
+    implementation "org.koin:koin-android:$koinVersion"
+    implementation "org.koin:koin-androidx-scope:$koinVersion"
+    implementation "org.koin:koin-androidx-viewmodel:$koinVersion"
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    implementation 'com.google.android.material:material:1.0.0'
+
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$glideVersion"
+    kapt "com.github.bumptech.glide:compiler:$glideVersion"
 }
