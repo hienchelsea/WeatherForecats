@@ -10,6 +10,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.2"
     defaultConfig {
+        buildConfigField "String", "API_KEY", "\"${API_KEY}\""
         applicationId "com.sun.weatherforecats"
         minSdkVersion 18
         targetSdkVersion 29
