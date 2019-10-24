@@ -11,20 +11,20 @@ import retrofit2.http.Query
 interface AirApi {
 
     @GET(PATH_AIR_CURRENT)
-    fun getAirCurrent(
+    fun getAirCurrentAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String
     ): Deferred<Response<AirCurrentResponse>>
 
     @GET(PATH_AIR_HOURLY)
-    fun getAirHourly(
+    fun getAirHourlyAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String,
         @Query(QUERY_HOURS) hours: Int
     ): Deferred<Response<AirHourlyResponse>>
 
     @GET(PATH_AIR_HISTORY)
-    fun getAirDaily(
+    fun getAirHistoryAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String,
         @Query(QUERY_HOURS) hours: Int

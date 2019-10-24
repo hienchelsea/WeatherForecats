@@ -11,20 +11,20 @@ import retrofit2.http.Query
 interface WeatherApi {
 
     @GET(PATH_WEATHER_CURRENT)
-    fun getWeatherCurrent(
+    fun getWeatherCurrentAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String
     ): Deferred<Response<WeatherCurrent>>
 
     @GET(PATH_WEATHER_HOURLY)
-    fun getWeatherHourly(
+    fun getWeatherHourlyAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String,
         @Query(QUERY_HOURS) hours: Int
     ): Deferred<Response<WeatherHourlyResponse>>
 
     @GET(PATH_WEATHER_HOURLY)
-    fun getWeatherDaily(
+    fun getWeatherDailyAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String,
         @Query(QUERY_DAYS) days: Int
