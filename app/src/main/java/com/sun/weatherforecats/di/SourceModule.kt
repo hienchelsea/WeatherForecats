@@ -21,8 +21,4 @@ val sourceModule = module {
         CityLocalDataSource(appDatabase = get(named(KoinNames.APP_DATABASE)))
     }
 
-    single(named(KoinNames.WEATHER_REMOTE_DATA_SOURCE)) {
-        WeatherRemoteDataSource(weatherApi = get(named(KoinNames.WEATHER_API)))
-    }
-
 }

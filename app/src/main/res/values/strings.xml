@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="city_name">The name of the city</string>
+    <string name="city_name_demo">Ha noi</string>
+    <string name="temperature">Temperature</string>
+    <string name="air_quality">Air quality</string>
+    <string name="air_quality_demo">107 AQI</string>
+    <string name="temperature_demo">23 C</string>
+    <string name="temperature_description">Sunny day and night without rain</string>
+    <string name="time_demo">09:00</string>
 </resources>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_200"
+    android:layout_marginStart="@dimen/dp_16"
+    android:layout_marginEnd="@dimen/dp_16"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@id/textViewCityName">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewTem"
+            android:layout_width="@dimen/dp_100"
+            android:layout_height="@dimen/dp_200"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="@dimen/dp_8"
+                android:background="@drawable/bg_rectangle_while"
+                android:src="@drawable/ic_weather"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:layout_margin="@dimen/dp_8"
+                android:background="@color/color_orange_400"
+                android:gravity="center"
+                android:text="@string/temperature" />
+
+            <TextView
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="@dimen/dp_8"
+                android:gravity="center"
+                android:text="@string/temperature_demo"
+                android:textColor="@color/color_orange_500"
+                android:textSize="@dimen/sp_24" />
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:id="@+id/textViewDescription"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_56"
+            android:layout_margin="@dimen/dp_8"
+            android:background="@color/color_orange_200"
+            android:gravity="center"
+            android:text="@string/temperature_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardViewTem"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutNextHourOne"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dp_8"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayoutNextHourTwo"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/cardViewTem"
+            app:layout_constraintTop_toBottomOf="@id/textViewDescription">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:background="@color/color_orange_400"
+                android:gravity="center"
+                android:text="@string/time_demo" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewNextHourOne"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dp_8"
+                app:cardBackgroundColor="@color/color_orange_400">
+
+                <ImageView
+                    android:id="@+id/imageViewNextHourOne"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_3"
+                    android:background="@drawable/bg_rectangle_while"
+                    android:src="@drawable/ic_weather"
+                    tools:ignore="ContentDescription" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:gravity="center"
+                android:text="@string/temperature_demo"
+                android:textColor="@color/color_orange_500" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutNextHourTwo"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dp_8"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/linearLayoutNextHourThree"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayoutNextHourOne"
+            app:layout_constraintTop_toBottomOf="@id/textViewDescription">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:background="@color/color_orange_400"
+                android:gravity="center"
+                android:text="@string/time_demo" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewNextHourTwo"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dp_8"
+                app:cardBackgroundColor="@color/color_orange_400">
+
+                <ImageView
+                    android:id="@+id/imageViewNextHourTwo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_3"
+                    android:background="@drawable/bg_rectangle_while"
+                    android:src="@drawable/ic_weather"
+                    tools:ignore="ContentDescription" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:gravity="center"
+                android:text="@string/temperature_demo"
+                android:textColor="@color/color_orange_500" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayoutNextHourThree"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="@dimen/dp_8"
+            android:gravity="center"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/linearLayoutNextHourTwo"
+            app:layout_constraintTop_toBottomOf="@id/textViewDescription">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_28"
+                android:background="@color/color_orange_400"
+                android:gravity="center"
+                android:text="@string/time_demo" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewNextHourThree"
+                android:layout_width="@dimen/dp_40"
+                android:layout_height="@dimen/dp_40"
+                android:layout_gravity="center"
+                android:layout_margin="@dimen/dp_8"
+                app:cardBackgroundColor="@color/color_orange_400">
+
+                <ImageView
+                    android:id="@+id/imageViewNextHourThree"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/dp_3"
+                    android:background="@drawable/bg_rectangle_while"
+                    android:src="@drawable/ic_weather"
+                    tools:ignore="ContentDescription" />
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_40"
+                android:gravity="center"
+                android:text="@string/temperature_demo"
+                android:textColor="@color/color_orange_500" />
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
