@@ -18,6 +18,7 @@ fun View?.show() {
 fun View.OnClickListener.assignViews(vararg views: View?) {
     views.forEach { it?.setOnClickListener(this) }
 }
+
 fun ImageView.setImageUrl(url: String, cornerRadius: Int = 0) = Glide.with(context)
     .load(url)
     .apply { if (cornerRadius > 0) transform(CenterCrop(), RoundedCorners(cornerRadius)) }

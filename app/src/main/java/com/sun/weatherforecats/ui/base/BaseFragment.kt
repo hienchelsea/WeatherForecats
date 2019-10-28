@@ -15,11 +15,12 @@ abstract class BaseFragment<
         ViewBinding : ViewDataBinding,
         ViewModel : BaseViewModel
         > : Fragment(), LifecycleOwner {
-    protected lateinit var viewBinding: ViewBinding
-    protected abstract val viewModel: ViewModel
-
     @get:LayoutRes
     abstract val layoutId: Int
+    abstract val bindingVariable: Int
+
+    private lateinit var viewBinding: ViewBinding
+    protected abstract val viewModel: ViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -33,13 +34,15 @@ abstract class BaseFragment<
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        viewBinding.apply {
+            setVariable(bindingVariable, viewModel)
+            lifecycleOwner = viewLifecycleOwner
+            executePendingBindings()
+        }
         initView()
         initData()
-        setBindingVariables()
         observeViewModel()
-    }
-
-    open fun setBindingVariables() {
     }
 
     abstract fun initData()

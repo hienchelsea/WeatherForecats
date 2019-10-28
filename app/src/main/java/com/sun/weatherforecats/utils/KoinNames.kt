@@ -7,11 +7,12 @@ object KoinNames {
     const val WEATHER_API = "weather_api"
     const val AIR_API = "air_api"
     const val API_BASE_URL = "api_base_url"
-    const val AIR_REMOTE_DATA_SOURCE="air_remote_data_source"
-    const val WEATHER_REMOTE_DATA_SOURCE="weather_remote_data_source"
-    const val CITY_LOCAL_DATA_SOURCE="city_local_data_source"
-    const val AIR_REMOTE_REPOSITORY="air_remote_repository"
-    const val WEATHER_REMOTE_REPOSITORY="weather_remote_repository"
-    const val CITY_LOCAL_REPOSITORY="city_local_repository"
+    const val AIR_REMOTE_DATA_SOURCE = "air_remote_data_source"
+    const val WEATHER_REMOTE_DATA_SOURCE = "weather_remote_data_source"
+    const val CITY_LOCAL_DATA_SOURCE = "city_local_data_source"
+    const val AIR_REMOTE_REPOSITORY = "air_remote_repository"
+    const val WEATHER_REMOTE_REPOSITORY = "weather_remote_repository"
+    const val CITY_LOCAL_REPOSITORY = "city_local_repository"
+    const val GEOCOCER = "Geocoder"
 
 }

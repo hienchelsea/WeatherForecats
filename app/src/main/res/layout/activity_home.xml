@@ -76,7 +76,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/dp_24"
             android:gravity="center"
-            android:text="@string/city_name_demo"
+            android:text="@{viewModel.nameCity}"
             android:textSize="@dimen/sp_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
