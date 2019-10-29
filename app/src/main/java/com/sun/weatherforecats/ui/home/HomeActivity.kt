@@ -1,13 +1,22 @@
 package com.sun.weatherforecats.ui.home
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import com.sun.weatherforecats.R
+import com.sun.weatherforecats.databinding.ActivityHomeBinding
+import com.sun.weatherforecats.ui.base.BaseActivity
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
-class HomeActivity : AppCompatActivity() {
+class HomeActivity : BaseActivity<ActivityHomeBinding, HomeViewModel>() {
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+    override val viewModel: HomeViewModel by viewModel()
+
+    override val layoutId = R.layout.activity_home
+
+    override fun initView() {
+     //   TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+    override fun observeViewModel() {
+      //  TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
 }
