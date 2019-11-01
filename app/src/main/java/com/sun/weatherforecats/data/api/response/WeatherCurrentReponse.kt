@@ -2,10 +2,11 @@ package com.sun.weatherforecats.data.api.response
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
-import com.sun.weatherforecats.data.model.WeatherHourly
+import com.sun.weatherforecats.data.model.WeatherCurrent
 
-data class WeatherHourlyResponse(
+data class WeatherCurrentReponse(
+
     @SerializedName("data")
     @Expose
-    val data: List<WeatherHourly>
+    val data: List<WeatherCurrent>
 )

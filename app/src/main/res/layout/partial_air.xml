@@ -24,12 +24,12 @@
             app:layout_constraintTop_toTopOf="parent">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="@dimen/dp_8"
+                android:id="@+id/imageViewAir"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:layout_gravity="center"
                 android:background="@drawable/bg_rectangle_while"
-                android:padding="@dimen/dp_16"
-                android:src="@drawable/ic_very_happy"
+                android:padding="@dimen/dp_24"
                 tools:ignore="ContentDescription" />
 
             <TextView
@@ -41,14 +41,14 @@
                 android:text="@string/air_quality" />
 
             <TextView
+                android:id="@+id/textViewAir"
                 android:layout_width="@dimen/dp_100"
-                android:layout_height="@dimen/dp_40"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center|bottom"
                 android:layout_marginBottom="@dimen/dp_8"
                 android:gravity="center"
-                android:text="@string/air_quality_demo"
                 android:textColor="@color/color_blue"
-                android:textSize="@dimen/sp_24" />
+                android:textSize="@dimen/sp_18" />
 
         </androidx.cardview.widget.CardView>
 
@@ -59,7 +59,6 @@
             android:layout_margin="@dimen/dp_8"
             android:background="@color/color_blue_400"
             android:gravity="center"
-            android:text="@string/temperature_description"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/cardViewAir"
             app:layout_constraintTop_toTopOf="parent" />
@@ -77,11 +76,10 @@
             app:layout_constraintTop_toBottomOf="@id/textViewDescriptionAir">
 
             <TextView
+                android:id="@+id/textViewNextAirHourOne"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_28"
-                android:background="@color/color_blue_500"
-                android:gravity="center"
-                android:text="@string/time_demo" />
+                android:gravity="center" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewNextHourOneAir"
@@ -92,21 +90,20 @@
                 app:cardBackgroundColor="@color/color_blue">
 
                 <ImageView
-                    android:id="@+id/imageViewNextHourAir"
+                    android:id="@+id/imageViewNextAirHourOne"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/dp_3"
                     android:background="@drawable/bg_rectangle_while"
                     android:padding="@dimen/dp_5"
-                    android:src="@drawable/ic_very_happy"
                     tools:ignore="ContentDescription" />
             </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/textViewNextAirOne"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_40"
                 android:gravity="center"
-                android:text="@string/air_quality_demo"
                 android:textColor="@color/color_blue" />
         </LinearLayout>
 
@@ -124,11 +121,10 @@
             app:layout_constraintTop_toBottomOf="@id/textViewDescriptionAir">
 
             <TextView
+                android:id="@+id/textViewNextAirHourTwo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_28"
-                android:background="@color/color_blue_500"
-                android:gravity="center"
-                android:text="@string/time_demo" />
+                android:gravity="center" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewNextHourTwoAir"
@@ -139,21 +135,20 @@
                 app:cardBackgroundColor="@color/color_blue">
 
                 <ImageView
-                    android:id="@+id/imageViewNextHourTwoAir"
+                    android:id="@+id/imageViewNextAirHourTwo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/dp_3"
                     android:background="@drawable/bg_rectangle_while"
                     android:padding="@dimen/dp_5"
-                    android:src="@drawable/ic_very_happy"
                     tools:ignore="ContentDescription" />
             </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/textViewNextAirTwo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_40"
                 android:gravity="center"
-                android:text="@string/time_demo"
                 android:textColor="@color/color_blue" />
         </LinearLayout>
 
@@ -171,11 +166,10 @@
             app:layout_constraintTop_toBottomOf="@id/textViewDescriptionAir">
 
             <TextView
+                android:id="@+id/textViewNextAirHourThree"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_28"
-                android:background="@color/color_blue_500"
-                android:gravity="center"
-                android:text="@string/time_demo" />
+                android:gravity="center" />
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardViewNextHourThreeAir"
@@ -186,21 +180,20 @@
                 app:cardBackgroundColor="@color/color_blue">
 
                 <ImageView
-                    android:id="@+id/imageViewNextHourThreeAir"
+                    android:id="@+id/imageViewNextAirHourThree"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_margin="@dimen/dp_3"
                     android:background="@drawable/bg_rectangle_while"
                     android:padding="@dimen/dp_5"
-                    android:src="@drawable/ic_very_happy"
                     tools:ignore="ContentDescription" />
             </androidx.cardview.widget.CardView>
 
             <TextView
+                android:id="@+id/textViewNextAirThree"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/dp_40"
                 android:gravity="center"
-                android:text="@string/air_quality_demo"
                 android:textColor="@color/color_blue" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>

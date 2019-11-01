@@ -1,8 +1,8 @@
 package com.sun.weatherforecats.data.api
 
+import com.sun.weatherforecats.data.api.response.WeatherCurrentReponse
 import com.sun.weatherforecats.data.api.response.WeatherDailyResponse
 import com.sun.weatherforecats.data.api.response.WeatherHourlyResponse
-import com.sun.weatherforecats.data.model.WeatherCurrent
 import kotlinx.coroutines.Deferred
 import retrofit2.Response
 import retrofit2.http.GET
@@ -14,7 +14,7 @@ interface WeatherApi {
     fun getWeatherCurrentAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String
-    ): Deferred<Response<WeatherCurrent>>
+    ): Deferred<Response<WeatherCurrentReponse>>
 
     @GET(PATH_WEATHER_HOURLY)
     fun getWeatherHourlyAsync(

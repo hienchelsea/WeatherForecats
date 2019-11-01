@@ -6,23 +6,23 @@ import com.google.gson.annotations.SerializedName
 data class AirCurrent(
     @SerializedName("o3")
     @Expose
-    private val o3: Double,
+    val o3: Double,
     @SerializedName("so2")
     @Expose
-    private val so2: Double,
+    val so2: Double,
     @SerializedName("no2")
     @Expose
-    private val no2: Double,
+    val no2: Double,
     @SerializedName("aqi")
     @Expose
-    private val aqi: Int,
+    val aqi: String,
     @SerializedName("co")
     @Expose
-    private val co: Double,
+    val co: Double,
     @SerializedName("pm10")
     @Expose
-    private val pm10: Double,
+    val pm10: Double,
     @SerializedName("pm25")
     @Expose
-    private val pm25: Int
+    val pm25: Double
 )

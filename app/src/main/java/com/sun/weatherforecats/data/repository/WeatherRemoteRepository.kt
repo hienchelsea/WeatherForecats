@@ -1,9 +1,9 @@
 package com.sun.weatherforecats.data.repository
 
 import com.sun.weatherforecats.coroutine.ResultCoroutines
+import com.sun.weatherforecats.data.api.response.WeatherCurrentReponse
 import com.sun.weatherforecats.data.api.response.WeatherDailyResponse
 import com.sun.weatherforecats.data.api.response.WeatherHourlyResponse
-import com.sun.weatherforecats.data.model.WeatherCurrent
 import com.sun.weatherforecats.data.source.WeatherDataSource
 
 class WeatherRemoteRepository(
@@ -12,7 +12,7 @@ class WeatherRemoteRepository(
     override suspend fun getWeatherCurrent(
         city: String,
         key: String
-    ): ResultCoroutines<WeatherCurrent> = weatherDataSource.getWeatherCurrent(city, key)
+    ): ResultCoroutines<WeatherCurrentReponse> = weatherDataSource.getWeatherCurrent(city, key)
 
     override suspend fun getWeatherHourly(
         city: String,

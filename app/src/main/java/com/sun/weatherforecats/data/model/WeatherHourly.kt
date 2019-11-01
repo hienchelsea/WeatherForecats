@@ -6,98 +6,98 @@ import com.google.gson.annotations.SerializedName
 data class WeatherHourly(
     @SerializedName("wind_cdir")
     @Expose
-    private val windCdir: String,
+    val windCdir: String,
     @SerializedName("rh")
     @Expose
-    private val rh: Int,
+    val rh: Int,
     @SerializedName("pod")
     @Expose
-    private val pod: String,
+    val pod: String,
     @SerializedName("timestamp_utc")
     @Expose
-    private val timestampUtc: String,
+    val timestampUtc: String,
     @SerializedName("pres")
     @Expose
-    private val pres: Double,
+    val pres: Double,
     @SerializedName("solar_rad")
     @Expose
-    private val solarRad: Double,
+    val solarRad: Double,
     @SerializedName("ozone")
     @Expose
-    private val ozone: Double,
+    val ozone: Double,
     @SerializedName("weather")
     @Expose
-    private val weather: Weather,
+    val weather: Weather,
     @SerializedName("wind_gust_spd")
     @Expose
-    private val windGustSpd: Double,
+    val windGustSpd: Double,
     @SerializedName("timestamp_local")
     @Expose
-    private val timestampLocal: String,
+    val timestampLocal: String,
     @SerializedName("snow_depth")
     @Expose
-    private val snowDepth: Int,
+    val snowDepth: Int,
     @SerializedName("clouds")
     @Expose
-    private val clouds: Int,
+    val clouds: Int,
     @SerializedName("ts")
     @Expose
-    private val ts: Int,
+    val ts: Int,
     @SerializedName("wind_spd")
     @Expose
-    private val windSpd: Double,
+    val windSpd: Double,
     @SerializedName("pop")
     @Expose
-    private val pop: Int,
+    val pop: Int,
     @SerializedName("wind_cdir_full")
     @Expose
-    private val windCdirFull: String,
+    val windCdirFull: String,
     @SerializedName("slp")
     @Expose
-    private val slp: Double,
+    val slp: Double,
     @SerializedName("dni")
     @Expose
-    private val dni: Double,
+    val dni: Double,
     @SerializedName("dewpt")
     @Expose
-    private val dewpt: Int,
+    val dewpt: Double,
     @SerializedName("snow")
     @Expose
-    private val snow: Int,
+    val snow: Int,
     @SerializedName("uv")
     @Expose
-    private val uv: Double,
+    val uv: Double,
     @SerializedName("wind_dir")
     @Expose
-    private val windDir: Int,
+    val windDir: Int,
     @SerializedName("clouds_hi")
     @Expose
-    private val cloudsHi: Int,
+    val cloudsHi: Int,
     @SerializedName("precip")
     @Expose
-    private val precip: Double,
+    val precip: Double,
     @SerializedName("vis")
     @Expose
-    private val vis: Double,
+    val vis: Double,
     @SerializedName("dhi")
     @Expose
-    private val dhi: Double,
+    val dhi: Double,
     @SerializedName("app_temp")
     @Expose
-    private val appTemp: Double,
+    val appTemp: Double,
     @SerializedName("datetime")
     @Expose
-    private val datetime: String,
+    val datetime: String,
     @SerializedName("temp")
     @Expose
-    private val temp: Double,
+    val temp: Double,
     @SerializedName("ghi")
     @Expose
-    private val ghi: Double,
+    val ghi: Double,
     @SerializedName("clouds_mid")
     @Expose
-    private val cloudsMid: Int,
+    val cloudsMid: Int,
     @SerializedName("clouds_low")
     @Expose
-    private val cloudsLow: Int
+    val cloudsLow: Int
 )

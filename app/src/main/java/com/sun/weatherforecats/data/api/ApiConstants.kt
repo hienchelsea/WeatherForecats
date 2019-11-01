@@ -13,4 +13,5 @@ internal const val QUERY_DAYS = "days"
 
 object ApiConstants {
     const val API_BASE_URL = "https://api.weatherbit.io/v2.0/"
+    const val API_BASE_URL_IMAGE = "https://www.weatherbit.io/static/img/icons/"
 }
