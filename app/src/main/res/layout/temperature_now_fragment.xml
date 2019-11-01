@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sun.weatherforecats.ui.temperature.temperaturenow.TemperatureNowViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_primary">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewTemperatureCurrent"
+                    android:layout_width="@dimen/dp_100"
+                    android:layout_height="@dimen/dp_100"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:padding="@dimen/dp_8"
+                    android:src="@drawable/ic_weather"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="ContentDescription" />
+
+                <TextView
+                    android:id="@+id/textViewTemperatureCurrent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:gravity="center|end"
+                    android:text="@string/temperature_demo"
+                    android:textColor="@color/color_orange_400"
+                    android:textSize="@dimen/sp_40"
+                    app:layout_constraintEnd_toStartOf="@+id/textView2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewTemperatureCurrent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/dp_16"
+                    android:layout_marginTop="@dimen/dp_16"
+                    android:gravity="center|start"
+                    android:text="@string/c"
+                    android:textColor="@color/color_orange_400"
+                    android:textSize="@dimen/sp_32"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textViewTemperatureCurrent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/textViewFeelTem"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/temperature_feel"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewTemperatureFeel"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/imageViewTemperatureCurrent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewTemperatureCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewTemperatureFeel"
+                    android:layout_width="@dimen/dp_56"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="@string/temperature_demo"
+                    android:textSize="@dimen/sp_24"
+                    app:layout_constraintEnd_toStartOf="@+id/textViewTemperatureUnit"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textViewFeelTem"
+                    app:layout_constraintTop_toBottomOf="@id/textViewTemperatureCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewTemperatureUnit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center|start"
+                    android:text="@string/c"
+                    android:textSize="@dimen/sp_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toEndOf="@+id/textViewTemperatureFeel"
+                    app:layout_constraintTop_toBottomOf="@id/textViewTemperatureCurrent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayoutLine"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_3"
+                    android:layout_marginTop="@dimen/dp_24"
+                    android:background="@color/color_orange_200"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/imageViewTemperatureCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewDescriptionTemCurrent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/temperature_description"
+                    android:textColor="@color/color_orange_400"
+                    android:textSize="@dimen/sp_18"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/linearLayoutLine" />
+
+                <TextView
+                    android:id="@+id/textViewHumidity"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/humidity"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewHumidityCurrent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/temperature_demo"
+                    android:textColor="@color/color_orange_400"
+                    app:layout_constraintStart_toEndOf="@id/textViewHumidity"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewUv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/uv_index"
+                    app:layout_constraintStart_toEndOf="@id/textViewHumidityCurrent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewUvCurrent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/temperature_demo"
+                    android:textColor="@color/color_orange_400"
+                    app:layout_constraintStart_toEndOf="@id/textViewUv"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewWindSpeed"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/wind_speed"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewHumidity" />
+
+                <TextView
+                    android:id="@+id/textViewWindSpeedCurrent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/temperature_demo"
+                    android:textColor="@color/color_orange_400"
+                    app:layout_constraintStart_toEndOf="@id/textViewWindSpeed"
+                    app:layout_constraintTop_toBottomOf="@id/textViewUv" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="end"
+                    android:padding="@dimen/dp_16"
+                    android:text="@string/details"
+                    android:textColor="@color/color_orange_400"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/textViewWindSpeedCurrent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewUv" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/dp_6"
+                    android:background="@color/color_orange_400"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/textViewWindSpeedCurrent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

@@ -16,4 +16,12 @@
     <string name="very_bad">The air quality is very bad</string>
     <string name="normal">Good air quality</string>
     <string name="good">The air is very fresh</string>
+    <string name="now">Now</string>
+    <string name="hourly">Hourly</string>
+    <string name="daily">Daily</string>
+    <string name="temperature_feel">Temperature feel</string>
+    <string name="humidity">Humidity</string>
+    <string name="uv_index">Uv index</string>
+    <string name="wind_speed">Wind speed</string>
+    <string name="details">Details</string>
 </resources>
