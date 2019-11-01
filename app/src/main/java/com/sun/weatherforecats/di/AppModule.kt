@@ -1,5 +1,7 @@
 package com.sun.weatherforecats.di
 
+import android.annotation.SuppressLint
+import android.location.Geocoder
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import com.sun.weatherforecats.data.api.APIFactory
 import com.sun.weatherforecats.data.api.AirApi
@@ -12,12 +14,18 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.*
 
+@SuppressLint("ConstantLocale")
 val appModule = module {
     single { androidApplication().resources }
 
     single(named(KoinNames.APP_DATABASE)) {
         AppDatabase.getInstance(androidContext())
+    }
+
+    single(named(KoinNames.GEOCOCER)){
+        Geocoder(androidContext(), Locale.getDefault())
     }
 
     single(named(KoinNames.COROUTINE_CALL_ADAPTER_FACTORY)) {

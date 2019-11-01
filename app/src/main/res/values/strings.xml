@@ -8,4 +8,5 @@
     <string name="temperature_demo">23 C</string>
     <string name="temperature_description">Sunny day and night without rain</string>
     <string name="time_demo">09:00</string>
+    <string name="error_location">Unable to find your current location</string>
 </resources>
