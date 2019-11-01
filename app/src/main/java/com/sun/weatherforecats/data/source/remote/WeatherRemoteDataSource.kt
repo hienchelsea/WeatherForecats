@@ -26,7 +26,7 @@ class WeatherRemoteDataSource(
         key: String,
         hours: Int
     ): ResultCoroutines<WeatherHourlyResponse> = safeApiResult(
-        call = { weatherApi.getWeatherHourlyAsync(city, key,hours).await() },
+        call = { weatherApi.getWeatherHourlyAsync(city, key, hours).await() },
         errorMessage = Constants.ERROR_MESSAGE
     )
 
@@ -35,7 +35,7 @@ class WeatherRemoteDataSource(
         key: String,
         days: Int
     ): ResultCoroutines<WeatherDailyResponse> = safeApiResult(
-        call = { weatherApi.getWeatherDailyAsync(city, key,days).await() },
+        call = { weatherApi.getWeatherDailyAsync(city, key, days).await() },
         errorMessage = Constants.ERROR_MESSAGE
     )
 }

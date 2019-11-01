@@ -9,4 +9,11 @@
     <string name="temperature_description">Sunny day and night without rain</string>
     <string name="time_demo">09:00</string>
     <string name="error_location">Unable to find your current location</string>
+    <string name="c">  C</string>
+    <string name="aqi">  AQI</string>
+    <string name="bad">Bad air quality</string>
+    <string name="dangerous">The air is very dangerous</string>
+    <string name="very_bad">The air quality is very bad</string>
+    <string name="normal">Good air quality</string>
+    <string name="good">The air is very fresh</string>
 </resources>

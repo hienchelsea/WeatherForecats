@@ -9,8 +9,6 @@ import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import com.sun.weatherforecats.BR
-import com.sun.weatherforecats.R
-import com.sun.weatherforecats.utils.Constants
 
 abstract class BaseActivity<
         ViewBinding : ViewDataBinding,
@@ -44,7 +42,7 @@ abstract class BaseActivity<
 
     abstract fun initListener()
 
-    open fun observeViewModel(){
+    open fun observeViewModel() {
         viewModel.messenger.observe(this, Observer {
             Toast.makeText(this, it, Toast.LENGTH_LONG).show()
         })
