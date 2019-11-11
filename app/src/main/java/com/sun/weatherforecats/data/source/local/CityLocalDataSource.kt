@@ -1,6 +1,7 @@
 package com.sun.weatherforecats.data.source.local
 
-import com.sun.weatherforecats.coroutine.ResultCoroutines
+import android.util.Log
+import com.sun.weatherforecats.coroutine.ResultCoroutine
 import com.sun.weatherforecats.data.db.AppDatabase
 import com.sun.weatherforecats.data.db.entity.City
 import com.sun.weatherforecats.data.source.CityDataSource
@@ -9,23 +10,24 @@ class CityLocalDataSource(
     private val appDatabase: AppDatabase
 ) : CityDataSource.Local {
 
-    override fun getCities(): ResultCoroutines<List<City>> = try {
-        ResultCoroutines.Success(appDatabase.cityDao().getAllCity())
+    override fun getCities(): ResultCoroutine<List<City>> = try {
+        ResultCoroutine.Success(appDatabase.cityDao().getAllCity())
     } catch (e: Exception) {
-        ResultCoroutines.Error(e)
+        ResultCoroutine.Error(e)
     }
 
-    override fun insertCities(city: City): ResultCoroutines<City> = try {
+    override fun insertCities(city: City): ResultCoroutine<City> = try {
         appDatabase.cityDao().insert(city)
-        ResultCoroutines.Success(city)
+        ResultCoroutine.Success(city)
     } catch (e: Exception) {
-        ResultCoroutines.Error(e)
+        ResultCoroutine.Error(e)
     }
 
-    override fun deleteCities(city: City): ResultCoroutines<City> = try {
+    override fun deleteCities(city: City): ResultCoroutine<City> = try {
         appDatabase.cityDao().remove(city)
-        ResultCoroutines.Success(city)
+        ResultCoroutine.Success(city)
     } catch (e: Exception) {
-        ResultCoroutines.Error(e)
+        Log.d("Hien",e.toString())
+        ResultCoroutine.Error(e)
     }
 }

@@ -9,22 +9,22 @@ data class AirHourly(
     val aqi: String,
     @SerializedName("pm10")
     @Expose
-    val pm10: Double,
+    val pm10: String,
     @SerializedName("pm25")
     @Expose
-    val pm25: Double,
+    val pm25: String,
     @SerializedName("o3")
     @Expose
-    val o3: Double,
+    val o3: String,
     @SerializedName("timestamp_local")
     @Expose
     val timestampLocal: String,
     @SerializedName("so2")
     @Expose
-    val so2: Double,
+    val so2: String,
     @SerializedName("no2")
     @Expose
-    val no2: Double,
+    val no2: String,
     @SerializedName("timestamp_utc")
     @Expose
     val timestampUtc: String,

@@ -53,57 +53,80 @@
                     android:layout_height="@dimen/dp_56"
                     android:layout_gravity="end"
                     android:padding="@dimen/dp_16"
+                    android:layout_marginEnd="@dimen/dp_20"
                     android:src="@drawable/ic_search"
+                    tools:ignore="ContentDescription" />
+                <ImageView
+                    android:id="@+id/imageViewSetting"
+                    android:layout_width="@dimen/dp_20"
+                    android:layout_height="@dimen/dp_56"
+                    android:layout_gravity="end"
+                    android:src="@drawable/ic_setting"
                     tools:ignore="ContentDescription" />
 
             </com.google.android.material.appbar.CollapsingToolbarLayout>
 
         </com.google.android.material.appbar.AppBarLayout>
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_400"
-            android:layout_marginTop="@dimen/dp_50"
-            android:background="@drawable/bg_city"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:id="@+id/textViewCityName"
+        <include
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/dp_24"
-            android:gravity="center"
-            android:text="@{viewModel.nameCity}"
-            android:textSize="@dimen/sp_24"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            layout="@layout/load_data_progress" />
 
-        <include
-            layout="@layout/partial_temperature"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutHome"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_80"
-            android:layout_marginEnd="@dimen/dp_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewCityName" />
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/dp_80">
 
-        <include
-            layout="@layout/partial_air"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/dp_16"
-            android:layout_marginTop="@dimen/dp_310"
-            android:layout_marginEnd="@dimen/dp_16"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewCityName" />
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_400"
+                android:layout_marginTop="@dimen/dp_50"
+                android:background="@drawable/bg_city"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textViewCityName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_24"
+                android:gravity="center"
+                android:text="@{viewModel.nameCity}"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+
+            <include
+                layout="@layout/partial_temperature"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_80"
+                android:layout_marginEnd="@dimen/dp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewCityName" />
+
+            <include
+                layout="@layout/partial_air"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_310"
+                android:layout_marginEnd="@dimen/dp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewCityName" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

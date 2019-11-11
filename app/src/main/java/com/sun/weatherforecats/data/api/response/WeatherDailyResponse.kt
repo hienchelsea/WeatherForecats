@@ -7,23 +7,23 @@ import com.sun.weatherforecats.data.model.WeatherDaily
 data class WeatherDailyResponse(
     @SerializedName("data")
     @Expose
-    private val data: List<WeatherDaily>,
+    val data: List<WeatherDaily>,
     @SerializedName("city_name")
     @Expose
-    private val cityName: String,
+    val cityName: String,
     @SerializedName("lon")
     @Expose
-    private val lon: String,
+    val lon: String,
     @SerializedName("timezone")
     @Expose
-    private val timezone: String,
+    val timezone: String,
     @SerializedName("lat")
     @Expose
-    private val lat: String,
+    val lat: String,
     @SerializedName("country_code")
     @Expose
-    private val countryCode: String,
+    val countryCode: String,
     @SerializedName("state_code")
     @Expose
-    private val stateCode: String
+    val stateCode: String
 )

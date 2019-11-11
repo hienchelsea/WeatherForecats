@@ -9,7 +9,7 @@ data class WeatherHourly(
     val windCdir: String,
     @SerializedName("rh")
     @Expose
-    val rh: Int,
+    val rh: String,
     @SerializedName("pod")
     @Expose
     val pod: String,
@@ -18,64 +18,64 @@ data class WeatherHourly(
     val timestampUtc: String,
     @SerializedName("pres")
     @Expose
-    val pres: Double,
+    val pres: String,
     @SerializedName("solar_rad")
     @Expose
-    val solarRad: Double,
+    val solarRad: String,
     @SerializedName("ozone")
     @Expose
-    val ozone: Double,
+    val ozone: String,
     @SerializedName("weather")
     @Expose
     val weather: Weather,
     @SerializedName("wind_gust_spd")
     @Expose
-    val windGustSpd: Double,
+    val windGustSpd: String,
     @SerializedName("timestamp_local")
     @Expose
     val timestampLocal: String,
     @SerializedName("snow_depth")
     @Expose
-    val snowDepth: Int,
+    val snowDepth: String,
     @SerializedName("clouds")
     @Expose
-    val clouds: Int,
+    val clouds: String,
     @SerializedName("ts")
     @Expose
-    val ts: Int,
+    val ts: String,
     @SerializedName("wind_spd")
     @Expose
-    val windSpd: Double,
+    val windSpd: String,
     @SerializedName("pop")
     @Expose
-    val pop: Int,
+    val pop: String,
     @SerializedName("wind_cdir_full")
     @Expose
     val windCdirFull: String,
     @SerializedName("slp")
     @Expose
-    val slp: Double,
+    val slp: String,
     @SerializedName("dni")
     @Expose
-    val dni: Double,
+    val dni: String,
     @SerializedName("dewpt")
     @Expose
-    val dewpt: Double,
+    val dewpt: String,
     @SerializedName("snow")
     @Expose
-    val snow: Int,
+    val snow: String,
     @SerializedName("uv")
     @Expose
-    val uv: Double,
+    val uv: String,
     @SerializedName("wind_dir")
     @Expose
-    val windDir: Int,
+    val windDir: String,
     @SerializedName("clouds_hi")
     @Expose
-    val cloudsHi: Int,
+    val cloudsHi: String,
     @SerializedName("precip")
     @Expose
-    val precip: Double,
+    val precip: String,
     @SerializedName("vis")
     @Expose
     val vis: Double,
@@ -84,16 +84,16 @@ data class WeatherHourly(
     val dhi: Double,
     @SerializedName("app_temp")
     @Expose
-    val appTemp: Double,
+    val appTemp: String,
     @SerializedName("datetime")
     @Expose
     val datetime: String,
     @SerializedName("temp")
     @Expose
-    val temp: Double,
+    val temp: String,
     @SerializedName("ghi")
     @Expose
-    val ghi: Double,
+    val ghi: String,
     @SerializedName("clouds_mid")
     @Expose
     val cloudsMid: Int,

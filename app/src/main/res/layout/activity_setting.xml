@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sun.weatherforecats.ui.setting.SettingViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appBarLayout"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imageViewBack"
+                    android:layout_width="@dimen/dp_56"
+                    android:layout_height="@dimen/dp_56"
+                    android:padding="@dimen/dp_16"
+                    android:src="@drawable/ic_back"
+                    tools:ignore="ContentDescription" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/setting"
+                    android:textColor="@color/color_blue"
+                    android:textSize="@dimen/sp_18"
+                    android:gravity="center"
+                    android:layout_gravity="center" />
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+        <include
+            android:visibility="gone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            layout="@layout/load_data_progress" />
+        <LinearLayout
+            android:id="@+id/linearLayoutNotification"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/appBarLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:src="@drawable/ic_tasks"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_16"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/show_status_bar"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+            <CheckBox
+                android:id="@+id/checkbox"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"/>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutAlarm"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutNotification"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:src="@drawable/ic_notification"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_14"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/remind_weather_watch"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+            <TextView
+                android:id="@+id/textViewTime"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/hours_notification"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutUnits"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutAlarm"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:src="@drawable/ic_measure"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_14"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/textViewUnits"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/unit_of_measure"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutDate"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutUnits"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:src="@drawable/ic_hours"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_14"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/time_format"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+            <TextView
+                android:id="@+id/textViewHours"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginEnd="@dimen/dp_16"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/hours_day"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutDayOfYou"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutDate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:src="@drawable/ic_umbrella"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_14"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/textDay"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/prepare_your_day"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutTopic"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutDayOfYou"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:src="@drawable/ic_theme"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_14"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/theme"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/linearLayoutReview"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_16"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_primary_dark"
+            app:layout_constraintTop_toBottomOf="@id/linearLayoutTopic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+            <ImageView
+                android:src="@drawable/ic_stars"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_14"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="@string/app_reviews"
+                android:textSize="@dimen/sp_16"
+                android:gravity="center|start" />
+        </LinearLayout>
+        <TextView
+            android:layout_marginBottom="@dimen/dp_16"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_weather"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

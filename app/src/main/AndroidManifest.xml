@@ -2,6 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sun.weatherforecats">
     <!-- To access Google+ APIs: -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
@@ -13,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.managercity.CityActivity"/>
+        <activity android:name=".ui.setting.SettingActivity" />
+        <activity android:name=".ui.managercity.CityyActivity" />
         <activity android:name=".ui.temperature.TemperatureActivity" />
         <activity android:name=".ui.air.AirActivity" />
         <activity android:name=".ui.home.HomeActivity">
@@ -24,6 +26,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <receiver
+            android:name=".utils.NotificationReceiver"
+            android:enabled="true" />
+        <service
+            android:name=".utils.NotificationService"
+            android:enabled="true" />
     </application>
 
 </manifest>

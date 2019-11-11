@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sun.weatherforecats.data.model.WeatherCurrent" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewTemHourly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@color/color_primary">
+        <LinearLayout
+            android:layout_width="@dimen/dp_8"
+            android:layout_height="match_parent"
+            android:background="@color/color_orange_400"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutTemHourly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_4">
+
+            <ImageView
+                android:id="@+id/imageViewAvatar"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:src="@drawable/ic_weather"
+                android:padding="@dimen/dp_16"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/textViewCityName"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{viewModel.cityName}"
+                android:gravity="center"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintEnd_toStartOf="@id/textViewTem"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
+                app:layout_constraintBottom_toBottomOf="parent" />
+            <TextView
+                android:id="@+id/textViewTem"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{viewModel.temp}"
+                android:gravity="center|end|bottom"
+                android:textColor="@color/color_orange_400"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/textViewAir"
+                app:layout_constraintStart_toEndOf="@id/textViewCityName"
+                app:layout_constraintEnd_toStartOf="@id/textViewTemUnit"/>
+            <TextView
+                android:id="@+id/textViewTemUnit"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="0dp"
+                android:text="@string/c"
+                android:gravity="center|start|bottom"
+                android:textColor="@color/color_orange_400"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/textViewAir"
+                app:layout_constraintStart_toEndOf="@id/textViewTem"
+                app:layout_constraintEnd_toStartOf="@id/imageViewDelete"/>
+            <TextView
+                android:id="@+id/textViewAir"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="@{viewModel.aqi}"
+                android:gravity="center|end|top"
+                android:textColor="@color/color_blue"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintTop_toBottomOf="@id/textViewTem"
+                app:layout_constraintStart_toEndOf="@id/textViewCityName"
+                app:layout_constraintEnd_toStartOf="@id/textViewAirUnit"
+                app:layout_constraintBottom_toBottomOf="parent" />
+            <TextView
+                android:id="@+id/textViewAirUnit"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="0dp"
+                android:text="@string/aqi"
+                android:gravity="center|start|top"
+                android:textColor="@color/color_blue"
+                android:textSize="@dimen/sp_24"
+                app:layout_constraintTop_toBottomOf="@id/textViewTem"
+                app:layout_constraintStart_toEndOf="@id/textViewAir"
+                app:layout_constraintEnd_toStartOf="@id/imageViewDelete"
+                app:layout_constraintBottom_toBottomOf="parent" />
+            <ImageView
+                android:id="@+id/imageViewDelete"
+                android:layout_width="@dimen/dp_24"
+                android:layout_height="@dimen/dp_24"
+                android:src="@drawable/ic_delete"
+                android:padding="@dimen/dp_3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

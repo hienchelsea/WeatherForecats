@@ -8,13 +8,13 @@ open class ApiResultHandler {
     suspend fun <T : Any> safeApiResult(
         call: suspend () -> Response<T>,
         errorMessage: String
-    ): ResultCoroutines<T> {
+    ): ResultCoroutine<T> {
         val response = call.invoke()
         if (response.isSuccessful) {
             response.body()?.let {
-                return ResultCoroutines.Success(it)
+                return ResultCoroutine.Success(it)
             }
         }
-        return ResultCoroutines.Error(IOException("Error Occurred during getting safe Api result, Custom ERROR - $errorMessage"))
+        return ResultCoroutine.Error(IOException("Error Occurred during getting safe Api result, Custom ERROR - $errorMessage"))
     }
 }

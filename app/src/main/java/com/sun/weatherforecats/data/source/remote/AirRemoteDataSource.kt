@@ -1,7 +1,7 @@
 package com.sun.weatherforecats.data.source.remote
 
 import com.sun.weatherforecats.coroutine.ApiResultHandler
-import com.sun.weatherforecats.coroutine.ResultCoroutines
+import com.sun.weatherforecats.coroutine.ResultCoroutine
 import com.sun.weatherforecats.data.api.AirApi
 import com.sun.weatherforecats.data.api.response.AirCurrentResponse
 import com.sun.weatherforecats.data.api.response.AirHistoryResponse
@@ -15,7 +15,7 @@ class AirRemoteDataSource(
     override suspend fun getAirCurrent(
         city: String,
         key: String
-    ): ResultCoroutines<AirCurrentResponse> = safeApiResult(
+    ): ResultCoroutine<AirCurrentResponse> = safeApiResult(
         call = { airApi.getAirCurrentAsync(city, key).await() },
         errorMessage = Constants.ERROR_MESSAGE
     )
@@ -24,7 +24,7 @@ class AirRemoteDataSource(
         city: String,
         key: String,
         hours: Int
-    ): ResultCoroutines<AirHourlyResponse> = safeApiResult(
+    ): ResultCoroutine<AirHourlyResponse> = safeApiResult(
         call = { airApi.getAirHourlyAsync(city, key, hours).await() },
         errorMessage = Constants.ERROR_MESSAGE
     )
@@ -33,7 +33,7 @@ class AirRemoteDataSource(
         city: String,
         key: String,
         hours: Int
-    ): ResultCoroutines<AirHistoryResponse> = safeApiResult(
+    ): ResultCoroutine<AirHistoryResponse> = safeApiResult(
         call = { airApi.getAirHistoryAsync(city, key, hours).await() },
         errorMessage = Constants.ERROR_MESSAGE
     )

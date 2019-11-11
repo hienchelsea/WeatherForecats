@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_150"
+    android:gravity="center"
+    android:background="#f1f1f1"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/dp_16"
+    android:layout_marginRight="@dimen/dp_16">
+
+    <TextView
+        android:layout_marginTop="@dimen/dp_16"
+        android:layout_marginStart="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ban co muon xoa thanh pho nay?"
+        android:textSize="@dimen/sp_18"
+        />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:ignore="UselessLeaf" />
+    <LinearLayout
+        android:layout_marginBottom="@dimen/dp_16"
+        android:layout_width="match_parent"
+        android:layout_height="42dp">
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            tools:ignore="ContentDescription" />
+        <Button
+            android:id="@+id/buttonDelete"
+            android:background="#f1f1f1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="delete"
+            android:textColor="@color/color_orange_400"
+           />
+        <Button
+            android:id="@+id/buttonCancel"
+            android:layout_marginLeft="@dimen/dp_16"
+            android:layout_marginRight="@dimen/dp_16"
+            android:background="#f1f1f1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="cancel"
+            android:textColor="@color/color_blue"
+            />
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true">
 
     <data>
 
@@ -11,11 +13,21 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayoutTemCurrent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/color_primary">
 
+        <include
+            layout="@layout/load_data_progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewTemCurrent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/dp_8"
@@ -33,7 +45,6 @@
                     android:layout_height="@dimen/dp_100"
                     android:layout_marginStart="@dimen/dp_16"
                     android:padding="@dimen/dp_8"
-                    android:src="@drawable/ic_weather"
                     app:layout_constraintHorizontal_bias="0.5"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
@@ -45,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/dp_16"
                     android:gravity="center|end"
-                    android:text="@string/temperature_demo"
+                    android:text="@{viewModel.temperatureCurrent.temp}"
                     android:textColor="@color/color_orange_400"
                     android:textSize="@dimen/sp_40"
                     app:layout_constraintEnd_toStartOf="@+id/textView2"
@@ -83,7 +94,7 @@
                     android:layout_width="@dimen/dp_56"
                     android:layout_height="wrap_content"
                     android:gravity="center"
-                    android:text="@string/temperature_demo"
+                    android:text="@{viewModel.temperatureCurrent.appTemp}"
                     android:textSize="@dimen/sp_24"
                     app:layout_constraintEnd_toStartOf="@+id/textViewTemperatureUnit"
                     app:layout_constraintHorizontal_bias="0.5"
@@ -118,7 +129,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dp_16"
-                    android:text="@string/temperature_description"
+                    android:text="@{viewModel.temperatureCurrent.weather.description}"
                     android:textColor="@color/color_orange_400"
                     android:textSize="@dimen/sp_18"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -139,9 +150,20 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dp_16"
-                    android:text="@string/temperature_demo"
+                    android:text="@{viewModel.temperatureCurrent.rh}"
                     android:textColor="@color/color_orange_400"
                     app:layout_constraintStart_toEndOf="@id/textViewHumidity"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewHumidityCurrentUnit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="@dimen/dp_16"
+                    android:paddingBottom="@dimen/dp_16"
+                    android:text="%"
+                    android:textColor="@color/color_orange_400"
+                    app:layout_constraintStart_toEndOf="@id/textViewHumidityCurrent"
                     app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
 
                 <TextView
@@ -150,7 +172,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dp_16"
                     android:text="@string/uv_index"
-                    app:layout_constraintStart_toEndOf="@id/textViewHumidityCurrent"
+                    app:layout_constraintStart_toEndOf="@id/textViewHumidityCurrentUnit"
                     app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
 
                 <TextView
@@ -158,9 +180,18 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dp_16"
-                    android:text="@string/temperature_demo"
+                    android:text="@{viewModel.temperatureCurrent.uv}"
                     android:textColor="@color/color_orange_400"
                     app:layout_constraintStart_toEndOf="@id/textViewUv"
+                    app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+                <TextView
+                    android:id="@+id/textViewUvCurrentUnit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:textColor="@color/color_orange_400"
+                    app:layout_constraintStart_toEndOf="@id/textViewUvCurrent"
                     app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
 
                 <TextView
@@ -177,16 +208,27 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/dp_16"
-                    android:text="@string/temperature_demo"
+                    android:text="@{viewModel.temperatureCurrent.windSpd}"
                     android:textColor="@color/color_orange_400"
                     app:layout_constraintStart_toEndOf="@id/textViewWindSpeed"
+                    app:layout_constraintTop_toBottomOf="@id/textViewUv" />
+
+                <TextView
+                    android:id="@+id/textViewWindSpeedCurrentUnit"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/dp_16"
+                    android:text="m/s"
+                    android:textColor="@color/color_orange_400"
+                    app:layout_constraintStart_toEndOf="@id/textViewWindSpeedCurrent"
                     app:layout_constraintTop_toBottomOf="@id/textViewUv" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:gravity="end"
-                    android:padding="@dimen/dp_16"
+                    android:paddingTop="@dimen/dp_16"
+                    android:paddingBottom="@dimen/dp_16"
                     android:text="@string/details"
                     android:textColor="@color/color_orange_400"
                     app:layout_constraintEnd_toEndOf="parent"

@@ -23,11 +23,14 @@ abstract class BaseActivity<
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        initViewBinding()
-        setupPermissions()
-        initView()
-        initListener()
-        observeViewModel()
+        if(checkInternet()){
+            initViewBinding()
+            setupPermissions()
+            initView()
+            initListener()
+            observeViewModel()
+        }
+
     }
 
     private fun initViewBinding() {
@@ -37,6 +40,8 @@ abstract class BaseActivity<
     }
 
     abstract fun initView()
+
+    abstract fun checkInternet():Boolean
 
     abstract fun setupPermissions()
 

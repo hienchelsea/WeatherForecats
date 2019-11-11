@@ -4,12 +4,14 @@ import android.location.Geocoder
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.sun.weatherforecats.BuildConfig
-import com.sun.weatherforecats.coroutine.ResultCoroutines
+import com.sun.weatherforecats.coroutine.ResultCoroutine
+import com.sun.weatherforecats.data.db.entity.City
 import com.sun.weatherforecats.data.model.AirCurrent
 import com.sun.weatherforecats.data.model.AirHourly
 import com.sun.weatherforecats.data.model.WeatherCurrent
 import com.sun.weatherforecats.data.model.WeatherHourly
 import com.sun.weatherforecats.data.repository.AirRemoteRepository
+import com.sun.weatherforecats.data.repository.CityLocalRepository
 import com.sun.weatherforecats.data.repository.WeatherRemoteRepository
 import com.sun.weatherforecats.ui.base.BaseViewModel
 import com.sun.weatherforecats.utils.Constants
@@ -18,7 +20,8 @@ import kotlinx.coroutines.launch
 class HomeViewModel(
     private val geocoder: Geocoder,
     private val weatherRemoteRepository: WeatherRemoteRepository,
-    private val airRemoteRepository: AirRemoteRepository
+    private val airRemoteRepository: AirRemoteRepository,
+    private val cityLocalRepository: CityLocalRepository
 ) : BaseViewModel() {
 
     private val _nameCity = MutableLiveData<String>()
@@ -40,6 +43,14 @@ class HomeViewModel(
     private val _airHourly = MutableLiveData<List<AirHourly>>()
     val airHourly: LiveData<List<AirHourly>>
         get() = _airHourly
+
+    private val _city = MutableLiveData<List<City>>()
+    val city: LiveData<List<City>>
+        get() = _city
+
+    init {
+        getCity()
+    }
 
     fun setNameCity(lat: Double, lon: Double) {
         try {
@@ -64,11 +75,11 @@ class HomeViewModel(
     private fun getTemperatureCurrent(city: String) = launch {
         when (val chapterResponse =
             weatherRemoteRepository.getWeatherCurrent(city, BuildConfig.API_KEY)) {
-            is ResultCoroutines.Success -> {
+            is ResultCoroutine.Success -> {
                 _nameCity.postValue(city)
                 _temperatureCurrent.postValue(chapterResponse.data.data[0])
             }
-            is ResultCoroutines.Error -> {
+            is ResultCoroutine.Error -> {
                 _messenger.postValue(Constants.ERROR_MESSAGE)
             }
         }
@@ -77,10 +88,10 @@ class HomeViewModel(
     private fun getTemperatureHourly(city: String) = launch {
         when (val chapterResponse =
             weatherRemoteRepository.getWeatherHourly(city, BuildConfig.API_KEY, HOURS)) {
-            is ResultCoroutines.Success -> {
+            is ResultCoroutine.Success -> {
                 _temperatureHourly.postValue(chapterResponse.data.data)
             }
-            is ResultCoroutines.Error -> {
+            is ResultCoroutine.Error -> {
                 _messenger.postValue(Constants.ERROR_MESSAGE)
             }
         }
@@ -89,10 +100,10 @@ class HomeViewModel(
     private fun getAirCurrent(city: String) = launch {
         when (val chapterResponse =
             airRemoteRepository.getAirCurrent(city, BuildConfig.API_KEY)) {
-            is ResultCoroutines.Success -> {
+            is ResultCoroutine.Success -> {
                 _airCurrent.postValue(chapterResponse.data.data[0])
             }
-            is ResultCoroutines.Error -> {
+            is ResultCoroutine.Error -> {
                 _messenger.postValue(Constants.ERROR_MESSAGE)
             }
         }
@@ -101,10 +112,34 @@ class HomeViewModel(
     private fun getAirHourly(city: String) = launch {
         when (val chapterResponse =
             airRemoteRepository.getAirHourly(city, BuildConfig.API_KEY, HOURS)) {
-            is ResultCoroutines.Success -> {
+            is ResultCoroutine.Success -> {
                 _airHourly.postValue(chapterResponse.data.data)
             }
-            is ResultCoroutines.Error -> {
+            is ResultCoroutine.Error -> {
+                _messenger.postValue(Constants.ERROR_MESSAGE)
+            }
+        }
+    }
+
+     fun insetCity(city: City)= launch {
+        when (val chapterResponse =
+            cityLocalRepository.insertCities(city)) {
+            is ResultCoroutine.Success -> {
+                _messenger.postValue(Constants.CITY_NAME)
+            }
+            is ResultCoroutine.Error -> {
+                _messenger.postValue(Constants.ERROR_MESSAGE)
+            }
+        }
+    }
+
+    private fun getCity() = launch {
+        when (val chapterResponse =
+            cityLocalRepository.getCities()) {
+            is ResultCoroutine.Success -> {
+                _city.postValue(chapterResponse.data)
+            }
+            is ResultCoroutine.Error -> {
                 _messenger.postValue(Constants.ERROR_MESSAGE)
             }
         }

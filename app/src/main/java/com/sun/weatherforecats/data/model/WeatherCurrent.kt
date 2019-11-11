@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName
 data class WeatherCurrent(
     @SerializedName("rh")
     @Expose
-    val rh: Int,
+    val rh: String,
     @SerializedName("pod")
     @Expose
     val pod: String,
@@ -27,7 +27,7 @@ data class WeatherCurrent(
     val countryCode: String,
     @SerializedName("clouds")
     @Expose
-    val clouds: Int,
+    val clouds: String,
     @SerializedName("ts")
     @Expose
     val ts: Int,
@@ -42,7 +42,7 @@ data class WeatherCurrent(
     val cityName: String,
     @SerializedName("wind_spd")
     @Expose
-    val windSpd: Double,
+    val windSpd: String,
     @SerializedName("last_ob_time")
     @Expose
     val lastObTime: String,
@@ -75,10 +75,10 @@ data class WeatherCurrent(
     val snow: Int,
     @SerializedName("uv")
     @Expose
-    val uv: Double,
+    val uv: String,
     @SerializedName("precip")
     @Expose
-    val precip: Double,
+    val precip: String,
     @SerializedName("wind_dir")
     @Expose
     val windDir: Int,
@@ -93,7 +93,7 @@ data class WeatherCurrent(
     val dhi: Double,
     @SerializedName("aqi")
     @Expose
-    val aqi: Int? = null,
+    val aqi: String,
     @SerializedName("lat")
     @Expose
     val lat: Double,
@@ -114,5 +114,5 @@ data class WeatherCurrent(
     val elevAngle: Double,
     @SerializedName("app_temp")
     @Expose
-    val appTemp: Double
+    val appTemp: String
 )

@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    android:focusable="true">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sun.weatherforecats.ui.air.airhistory.AirHistoryDetailViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/color_primary">
+
+        <LinearLayout
+            android:id="@+id/linearAppBar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp_56"
+            android:background="@color/color_blue"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/imageViewBack"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_20"
+                android:src="@drawable/ic_back"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/textViewCityNameNow"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center|start"
+                android:text="@string/city_name_demo"
+                android:textColor="@color/color_primary"
+                android:textSize="@dimen/sp_18" />
+
+            <ImageView
+                android:id="@+id/imageViewOptionHistory"
+                android:layout_width="@dimen/dp_56"
+                android:layout_height="@dimen/dp_56"
+                android:padding="@dimen/dp_20"
+                android:visibility="gone"
+                tools:ignore="ContentDescription" />
+
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/dp_200"
+            android:background="@color/color_blue_500"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearAppBar" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_16"
+            android:background="@color/color_primary"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/linearAppBar">
+
+            <TextView
+                android:id="@+id/textViewWeatherDate"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:text="@{viewModel.airHistory.timestampLocal}"
+                android:textColor="@color/color_orange_500"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewWeatherCurrentDescriptionDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_24"
+                android:gravity="center"
+                android:textColor="@color/color_blue_500"
+                android:textSize="@dimen/dp_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/imageViewTemperatureCurrent" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textViewWeatherCurrentFeelDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:text="@string/temperature_feel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewWeatherCurrentDescriptionDetail" />
+
+            <TextView
+                android:visibility="gone"
+                android:id="@+id/textViewWeatherTemCurrentFeelDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintStart_toEndOf="@id/textViewWeatherCurrentFeelDetail"
+                app:layout_constraintTop_toBottomOf="@id/textViewWeatherCurrentDescriptionDetail" />
+
+            <TextView
+                android:id="@+id/textViewWeatherTemCurrentDetail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dp_16"
+                android:gravity="center"
+                android:text="@{viewModel.airHistory.aqi}"
+                android:textColor="@color/color_orange_400"
+                android:textSize="@dimen/sp_48"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewWeatherCurrentFeelDetail" />
+
+            <TextView
+                android:id="@+id/textViewDescriptionTemCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:textColor="@color/color_orange_400"
+                android:textSize="@dimen/sp_18"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewWeatherTemCurrentDetail" />
+
+            <TextView
+                android:id="@+id/textViewWindDirection"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="pm10"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+            <TextView
+                android:id="@+id/textViewWindSpeedDirectionCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="@{viewModel.airHistory.pm10}"
+                android:textColor="@color/color_orange_400"
+                app:layout_constraintStart_toEndOf="@id/textViewWindDirection"
+                app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+            <TextView
+                android:id="@+id/textViewPressure"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="pm25"
+                app:layout_constraintStart_toEndOf="@id/textViewWindSpeedDirectionCurrent"
+                app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+            <TextView
+                android:id="@+id/textViewPressureCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="@{viewModel.airHistory.pm25}"
+                android:textColor="@color/color_orange_400"
+                app:layout_constraintStart_toEndOf="@id/textViewPressure"
+                app:layout_constraintTop_toBottomOf="@id/textViewDescriptionTemCurrent" />
+
+            <TextView
+                android:id="@+id/textViewApi"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="so2"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewWindDirection" />
+
+            <TextView
+                android:id="@+id/textViewApiCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="@{viewModel.airHistory.so2}"
+                android:textColor="@color/color_orange_400"
+                app:layout_constraintStart_toEndOf="@id/textViewApi"
+                app:layout_constraintTop_toBottomOf="@id/textViewWindDirection" />
+
+            <TextView
+                android:id="@+id/textViewSun"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="no2"
+                app:layout_constraintStart_toEndOf="@id/textViewApiCurrent"
+                app:layout_constraintTop_toBottomOf="@id/textViewWindDirection" />
+
+            <TextView
+                android:id="@+id/textViewSunCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_16"
+                android:text="@{viewModel.airHistory.no2}"
+                android:textColor="@color/color_orange_400"
+                app:layout_constraintStart_toEndOf="@id/textViewSun"
+                app:layout_constraintTop_toBottomOf="@id/textViewWindDirection" />
+
+            <TextView
+                android:id="@+id/textViewRisecCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/dp_16"
+                android:paddingBottom="@dimen/dp_16"
+                android:textColor="@color/color_orange_400"
+                app:layout_constraintStart_toEndOf="@id/textViewSunCurrent"
+                app:layout_constraintTop_toBottomOf="@id/textViewWindDirection" />
+
+            <TextView
+                android:id="@+id/textViewO3"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="O3"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewSunCurrent" />
+
+            <TextView
+                android:id="@+id/textViewApiccCurrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="@{viewModel.airHistory.o3}"
+                android:textColor="@color/color_orange_400"
+                app:layout_constraintStart_toEndOf="@id/textViewO3"
+                app:layout_constraintTop_toBottomOf="@id/textViewApi" />
+
+            <TextView
+                android:id="@+id/textViewApiccCurxrent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:text="Co"
+                app:layout_constraintStart_toEndOf="@id/textViewApiccCurrent"
+                app:layout_constraintTop_toBottomOf="@id/textViewApi" />
+
+            <TextView
+                android:id="@+id/textViewACo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/dp_16"
+                android:textColor="@color/color_orange_400"
+                android:text="@{viewModel.airHistory.co}"
+                app:layout_constraintStart_toEndOf="@id/textViewApiccCurxrent"
+                app:layout_constraintTop_toBottomOf="@id/textViewApi" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_16"
+                android:layout_marginTop="@dimen/sp_40"
+                android:background="@color/color_orange_400"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/textViewACo" />
+
+            <ImageView
+                android:id="@+id/imageViewTemperatureCurrent"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:layout_marginTop="@dimen/dp_24"
+                android:padding="@dimen/dp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

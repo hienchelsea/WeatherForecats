@@ -1,198 +1,78 @@
 package com.sun.weatherforecats.ui.temperature.temperaturehourly
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProviders
+import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.sun.weatherforecats.BR
 import com.sun.weatherforecats.R
-import com.sun.weatherforecats.data.model.Weather
 import com.sun.weatherforecats.data.model.WeatherHourly
+import com.sun.weatherforecats.databinding.TemperatyreHourlyFragmentBinding
+import com.sun.weatherforecats.ui.base.BaseFragment
+import com.sun.weatherforecats.ui.base.OnBackFragment
+import com.sun.weatherforecats.ui.temperature.temperaturenow.TemperatureNowFragment
+import kotlinx.android.synthetic.main.load_data_progress.*
 import kotlinx.android.synthetic.main.temperatyre_hourly_fragment.*
+import org.koin.androidx.viewmodel.ext.android.viewModel
+import setUi
 
-class TemperatureHourlyFragment : Fragment(), TemperatureHourlyAdapter.OnItemClickListener {
+class TemperatureHourlyFragment(
+    private val onBackPressed: OnBackFragment
+) :
+    BaseFragment<TemperatyreHourlyFragmentBinding, TemperatureHourlyViewModel>(),
+    TemperatureHourlyAdapter.OnItemClickListener, OnBackFragment {
 
-    private lateinit var viewModel: TemperatureHourlyViewModel
+    override val viewModel: TemperatureHourlyViewModel by viewModel()
+
+    override val layoutId = R.layout.temperatyre_hourly_fragment
+
+    override val bindingVariable = BR.viewModel
 
     private val temperatureHourlyAdapter: TemperatureHourlyAdapter by lazy {
         TemperatureHourlyAdapter(this)
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.temperatyre_hourly_fragment, container, false)
+    private val nameCity by lazy {
+        arguments?.getString("CityName")
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(TemperatureHourlyViewModel::class.java)
+    override fun initData() {
+        nameCity?.let { viewModel.getTemperatureHourly(it) }
+    }
 
+    override fun initView() {
+        setUi(progressBar, constraintLayoutTemHours)
         recyclerViewTemHourly.run {
             layoutManager = StaggeredGridLayoutManager(1, StaggeredGridLayoutManager.VERTICAL)
             setHasFixedSize(true)
             adapter = temperatureHourlyAdapter
         }
-
-        var itemData = mutableListOf<WeatherHourly>()
-        itemData.add(
-            WeatherHourly(
-                "bb",
-                1,
-                "hhh",
-                "bbb",
-                12.1,
-                2.1,
-                11.1,
-                Weather("nnn", 12, "cccc"),
-                11.1,
-                "aaa",
-                11,
-                11,
-                111,
-                11.1,
-                1,
-                "ssss",
-                11.1,
-                11.1,
-                11.1,
-                11,
-                11.11,
-                1,
-                1,
-                11.1,
-                11.1,
-                11.1,
-                11.1,
-                "hh",
-                11.1,
-                111.1,
-                1,
-                1
-            )
-        )
-        itemData.add(
-            WeatherHourly(
-                "bb",
-                1,
-                "hhh",
-                "bbb",
-                12.1,
-                2.1,
-                11.1,
-                Weather("nnn", 12, "cccc"),
-                11.1,
-                "aaa",
-                11,
-                11,
-                111,
-                11.1,
-                1,
-                "ssss",
-                11.1,
-                11.1,
-                11.1,
-                11,
-                11.11,
-                1,
-                1,
-                11.1,
-                11.1,
-                11.1,
-                11.1,
-                "hh",
-                11.1,
-                111.1,
-                1,
-                1
-            )
-        )
-        temperatureHourlyAdapter.updateData(itemData.toList())
-        // TODO: Use the ViewModel
     }
 
-    override fun onInsert(itemData: WeatherHourly) {
-        lateinit var itemData: MutableList<WeatherHourly>
-        itemData.add(
-            WeatherHourly(
-                "bb",
-                1,
-                "hhh",
-                "bbb",
-                12.1,
-                2.1,
-                11.1,
-                Weather("nnn", 12, "cccc"),
-                11.1,
-                "aaa",
-                11,
-                11,
-                111,
-                11.1,
-                1,
-                "ssss",
-                11.1,
-                11.1,
-                11.1,
-                11,
-                11.11,
-                1,
-                1,
-                11.1,
-                11.1,
-                11.1,
-                11.1,
-                "hh",
-                11.1,
-                111.1,
-                1,
-                1
-            )
+    override fun observeViewModel() {
+        viewModel.temperatureHourly.observe(viewLifecycleOwner, Observer {
+            temperatureHourlyAdapter.insertData(it)
+            setUi(constraintLayoutTemHours, progressBar)
+        })
+    }
+
+    override fun onWeather(itemData: WeatherHourly) {
+        addFragment(
+            R.id.relativeMain,
+            TemperatureHourlyDetailFragment.newInstance(this,itemData), true
         )
-        itemData.add(
-            WeatherHourly(
-                "hh",
-                1,
-                "hhh",
-                "bbb",
-                12.1,
-                2.1,
-                11.1,
-                Weather("nnn", 12, "cccc"),
-                11.1,
-                "aaa",
-                11,
-                11,
-                111,
-                11.1,
-                1,
-                "ssss",
-                11.1,
-                11.1,
-                11.1,
-                11,
-                11.11,
-                1,
-                1,
-                11.1,
-                11.1,
-                11.1,
-                11.1,
-                "hh",
-                11.1,
-                111.1,
-                1,
-                1
-            )
-        )
-        temperatureHourlyAdapter.insertData(itemData)
+    }
+
+    override fun backFragment() {
+        onBackPressed.backFragment()
     }
 
     companion object {
-        fun newInstance() = TemperatureHourlyFragment()
+        fun newInstance(onBackPressed: OnBackFragment,nameCity: String): TemperatureHourlyFragment {
+            val temperatureNowFragment = TemperatureHourlyFragment(onBackPressed)
+            val bundle = Bundle()
+            bundle.putSerializable("CityName", nameCity)
+            temperatureNowFragment.arguments = bundle
+            return temperatureNowFragment
+        }
     }
 
 }

@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.sun.weatherforecats.data.model.AirHourly" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardViewTemHourly"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/dp_8"
+        android:background="@color/color_primary">
+        <LinearLayout
+            android:layout_width="@dimen/dp_8"
+            android:layout_height="match_parent"
+            android:background="@color/color_blue"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayoutTemHourly"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/dp_4">
+
+            <ImageView
+                android:id="@+id/imageViewAvatar"
+                android:layout_width="@dimen/dp_100"
+                android:layout_height="@dimen/dp_100"
+                android:padding="@dimen/dp_24"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+            <TextView
+                android:id="@+id/textViewTemperatureHours"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/imageViewAvatar"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginStart="@dimen/dp_16"
+                android:text="@{viewModel.aqi}"
+                android:gravity="center"
+                android:textSize="@dimen/sp_24"
+                android:textColor="@color/color_blue"  />
+            <TextView
+                android:id="@+id/textViewTemperatureHoursUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toEndOf="@id/textViewTemperatureHours"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:gravity="center"
+                android:text="@string/aqi"
+                android:textSize="@dimen/sp_24"
+                android:textColor="@color/color_blue" />
+
+            <TextView
+                android:id="@+id/textViewTimeCurrent"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/dp_40"
+                android:gravity="center"
+                android:textColor="@color/color_blue_500"
+                android:layout_marginStart="@dimen/dp_16"
+                android:layout_marginTop="@dimen/dp_10"
+                android:text="@{viewModel.timestampLocal}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textViewTemperatureHoursUnit"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/textViewLink"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_marginTop="@dimen/dp_16"
+                android:layout_marginStart="@dimen/dp_16"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/textViewTemperatureHoursUnit"
+                app:layout_constraintTop_toBottomOf="@id/textViewTimeCurrent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

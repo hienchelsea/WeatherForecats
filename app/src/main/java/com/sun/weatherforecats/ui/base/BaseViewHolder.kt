@@ -8,9 +8,13 @@ open class BaseViewHolder<T, VB : ViewDataBinding>(
 ) : RecyclerView.ViewHolder(binding.root) {
 
     private var itemData: T? = null
-    protected var itemPosition: Int = -1
+    private var itemPosition: Int = -1
 
     open fun onBindData(itemData: T) {
+        this.itemData = itemData
+    }
+    open fun onBindData(itemPosition: Int, itemData: T) {
+        this.itemPosition = itemPosition
         this.itemData = itemData
     }
 }

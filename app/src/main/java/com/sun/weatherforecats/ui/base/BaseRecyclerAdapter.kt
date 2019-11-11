@@ -18,8 +18,12 @@ abstract class BaseRecyclerAdapter<
 
     override fun getItemCount(): Int = items.size
 
+//    override fun onBindViewHolder(holder: viewHolder, position: Int) =
+//        holder.onBindData(items[position])
+
     override fun onBindViewHolder(holder: viewHolder, position: Int) =
-        holder.onBindData(items[position])
+        holder.onBindData(position,items[position])
+
 
     protected fun getViewHolderDataBinding(parent: ViewGroup, viewType: Int): ViewDataBinding =
         DataBindingUtil.inflate(

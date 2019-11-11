@@ -1,6 +1,8 @@
 @file:Suppress("DEPRECATION")
 
 import android.content.Context
+import android.net.ConnectivityManager
+import android.net.NetworkInfo
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
@@ -8,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.sun.weatherforecats.R
 import com.sun.weatherforecats.data.api.ApiConstants
 import com.sun.weatherforecats.utils.Constants
+import java.text.DecimalFormat
 
 fun View?.gone() {
     this?.visibility = View.GONE
@@ -54,3 +57,19 @@ fun airDDescriptionHandler(air: Double): Int =
 fun ImageView.setImageUrl(url: String) = Glide.with(context)
     .load(url)
     .into(this)
+
+fun setUi(views1: View,views2: View){
+    views1.show()
+    views2.gone()
+}
+
+fun isNetworkAvailable(context: Context): Boolean {
+    val cm = context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+    var activeNetworkInfo: NetworkInfo? = null
+    activeNetworkInfo = cm.activeNetworkInfo
+    return activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting
+}
+
+fun Int.formatDecimal(): String = this.let {
+    DecimalFormat("#00").format(it)
+}

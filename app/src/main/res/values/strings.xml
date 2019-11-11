@@ -19,9 +19,22 @@
     <string name="now">Now</string>
     <string name="hourly">Hourly</string>
     <string name="daily">Daily</string>
+    <string name="history">History</string>
     <string name="temperature_feel">Temperature feel</string>
     <string name="humidity">Humidity</string>
     <string name="uv_index">Uv index</string>
     <string name="wind_speed">Wind speed</string>
     <string name="details">Details</string>
+    <string name="setting">Setting</string>
+    <string name="show_status_bar">Show status bar</string>
+    <string name="unit_of_measure">Unit of measure</string>
+    <string name="time_format">Time format</string>
+    <string name="prepare_your_day">Prepare your day</string>
+    <string name="theme">Theme</string>
+    <string name="app_reviews">App reviews</string>
+    <string name="remind_weather_watch">Remind weather watch</string>
+    <string name="hours_notification">08:00</string>
+    <string name="hours_day">24hour</string>
+    <string name="app_weather">Weather Forecats 0.0.1</string>
+    <string name="noti">Update the weather situation immediately</string>
 </resources>

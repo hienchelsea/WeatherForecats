@@ -23,7 +23,7 @@ interface WeatherApi {
         @Query(QUERY_HOURS) hours: Int
     ): Deferred<Response<WeatherHourlyResponse>>
 
-    @GET(PATH_WEATHER_HOURLY)
+    @GET(PATH_WEATHER_DAILY)
     fun getWeatherDailyAsync(
         @Query(QUERY_CITY) city: String,
         @Query(QUERY_KEY) key: String,
